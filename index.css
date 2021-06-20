@@ -61,6 +61,12 @@ cursor: pointer;
 
 }
 
+. btn::active{
+background-color: white;
+border: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+color: linear-gradient(120deg, #3498db, #8e44ad, #3498db);
+}
+
 .info{
     width: 20px;
     cursor: pointer;
