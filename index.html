@@ -53,17 +53,16 @@ var mail = document.getElementById('email');
 var jagah = document.getElementById('address');
 	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwnjxGQjIswMrYtB_7B7s4crWMBkvDXaHU_u5dw4SA5awQs_upBCLM7vBBthTLcZ7Q/exec'
             const form = document.forms['google-sheet']
-          if(naam.value === "" || num.value === "" || mail.value === "" || jagah.value === "") {
-alert("Please fill all the required details");
-}
-else{
+          
+
             form.addEventListener('submit', e => {
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => alert("You have successfully submitted."))
                 .catch(error => console.error('Error!', error.message))
             })
-}
+
+
 
   </script>
 </body>
