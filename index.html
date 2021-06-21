@@ -21,13 +21,13 @@
 
        
             <form id="myForm" autocomplete="off">
-                <input id="name" class="regiinput" type="text" name="Name" placeholder="Enter your Name">
+                <input id="name" class="regiinput" value="" type="text" name="Name" placeholder="Enter your Name">
                 <br>
-                <input id="phone" class="regiinput" type="text" name="Phone No." placeholder="Enter your Phone No.">
+                <input id="phone" class="regiinput" value="" type="text" name="Phone No." placeholder="Enter your Phone No.">
                 <br>
-                <input id="email" class="regiinput" type="email" name="Email" placeholder="Enter your E-mail">
+                <input id="email" class="regiinput" value="" type="email" name="Email" placeholder="Enter your E-mail">
                 <br>
-                <input id="address" class="regiinput" type="address" name="Address" placeholder="Enter your Address">
+                <input id="address" class="regiinput" value="" type="address" name="Address" placeholder="Enter your Address">
                 <br>
                 <input class="regiinput" id="pcb" type="text" value="PCB Designing Workshop" >
              <a href="info.html" target="_blank" ><img class="info" src="info-removebg-preview.png" alt=""> </a>
@@ -47,16 +47,24 @@
 </center>
   <script type="text/javascript">
 
-
+var naam = document.getElementById('name');
+var num = document.getElementById('phone');
+var mail = document.getElementById('email');
+var jagah = document.getElementById('address');
 	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwnjxGQjIswMrYtB_7B7s4crWMBkvDXaHU_u5dw4SA5awQs_upBCLM7vBBthTLcZ7Q/exec'
             const form = document.forms['google-sheet']
-          
+          if(naam.value === "" || num.value === "" || mail.value === "" || jagah.value === "") {
+alert("Please fill all the required details");
+}
+else{
             form.addEventListener('submit', e => {
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => alert("You have successfully submitted."))
                 .catch(error => console.error('Error!', error.message))
             })
+}
+
   </script>
 </body>
 </html>
