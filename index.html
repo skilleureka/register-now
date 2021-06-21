@@ -36,37 +36,40 @@
                 <br>
                 <input class="btn" type="submit" name="submit" value="Save"/>
                 <br>
-                <button onclick="window.location.href='https://imjo.in/t5MGW4'" class="btn"><b>Pay Now</b></button>
+                
                
             </form>
-
+<button onclick="window.location.href = 'https://imjo.in/t5MGW4'" class="pay"><b>Pay Now</b></button>
         
          
-        </form>
+        
     </div>
 </center>
+
   <script type="text/javascript">
 
 var naam = document.getElementById('name');
 var num = document.getElementById('phone');
 var mail = document.getElementById('email');
 var jagah = document.getElementById('address');
+    
 	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwnjxGQjIswMrYtB_7B7s4crWMBkvDXaHU_u5dw4SA5awQs_upBCLM7vBBthTLcZ7Q/exec'
             const form = document.forms['google-sheet']
           
 
             form.addEventListener('submit', e => {
               e.preventDefault()
-if(naam.value === "" || num.value === "" || mail.value === "" || jagah.value === "") {
+            
+              if(naam.value === "" || num.value === "" || mail.value === "" || jagah.value === "") {
 alert("Please fill all the required details");
 }
-
-else{
+          else{
+              
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => alert("You have successfully submitted."))
                 .catch(error => console.error('Error!', error.message))
-           }
- })
+          }
+            })
 
 
 
