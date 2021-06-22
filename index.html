@@ -32,14 +32,14 @@
                 <input class="regiinput" id="pcb" type="text" value="PCB Designing Workshop" >
              <a href="info.html" target="_blank" ><img class="info" src="info-removebg-preview.png" alt=""> </a>
                 <br>
-                <p class="p2"><b>*Note: First save your details and then click on Pay Now</b></p>
+                <p class="p2" id="myDIV"><b>*Note: First save your details and then click on Pay Now</b></p>
                 <br>
                 <input class="btn" type="submit" name="submit" value="Save"/>
                 <br>
                 
                
             </form>
-<button onclick="window.location.href = 'https://imjo.in/t5MGW4'" class="pay"><b>Pay Now</b></button>
+<button onclick="paynow()" class="pay"><b>Pay Now</b></button>
         
          
         
@@ -52,7 +52,7 @@ var naam = document.getElementById('name');
 var num = document.getElementById('phone');
 var mail = document.getElementById('email');
 var jagah = document.getElementById('address');
-    
+    var y=0;
 	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwnjxGQjIswMrYtB_7B7s4crWMBkvDXaHU_u5dw4SA5awQs_upBCLM7vBBthTLcZ7Q/exec'
             const form = document.forms['google-sheet']
           
@@ -64,14 +64,26 @@ var jagah = document.getElementById('address');
 alert("Please fill all the required details");
 }
           else{
-              
+              y=1;
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => alert("You have successfully submitted."))
                 .catch(error => console.error('Error!', error.message))
           }
             })
 
+function paynow(){
+  if(y===1){
+    
+    window.location.href = "https://imjo.in/t5MGW4";
+  }
+  
+  else{
+  var anim=  document.getElementById("myDIV") ;
+   anim.style.animation = "mynewmove 0.2s 3";
 
+ 
+}
+}
 
   </script>
 </body>
